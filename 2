@@ -1,0 +1,44 @@
+import tkinter as tk
+import random
+import webbrowser
+
+def mover_botao():
+    novo_x = random.randint(0, largura_janela - largura_botao)
+    novo_y = random.randint(0, altura_janela - altura_botao)
+    botao.place(x=novo_x, y=novo_y)
+
+def abrir_youtube():
+    webbrowser.open("https://www.youtube.com/")
+    botao.config(text="Clique Aqui", command=mover_botao)
+import tkinter as tk
+import random
+
+def mover_nao():
+    novo_x = random.randint(0, largura_janela - largura_botao)
+    novo_y = random.randint(0, altura_janela - altura_botao)
+    botao_nao.place(x=novo_x, y=novo_y)
+
+def abrir_youtube():
+    webbrowser.open("https://www.youtube.com/watch?v=Y9TIK3Nzo8A&ab_channel=openingkdrama")
+
+root = tk.Tk()
+root.title("Movendo Botão")
+
+largura_janela = 400
+altura_janela = 300
+
+root.geometry(f"{largura_janela}x{altura_janela}")
+
+largura_botao = 100
+altura_botao = 30
+
+pergunta_label = tk.Label(root, text="Vai me dar beijinho por 10 minutos fim de semana?")
+pergunta_label.place(x=140, y=50)
+
+botao_sim = tk.Button(root, text="Sim", command=abrir_youtube)
+botao_sim.place(x=150, y=150)
+
+botao_nao = tk.Button(root, text="Não", command=mover_nao)
+botao_nao.place(x=250, y=150)
+
+root.mainloop()
